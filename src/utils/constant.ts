@@ -80,3 +80,16 @@ export const survey = [
         ],
     },
 ];
+
+export const correctAnswers = [
+    "manage_changes",
+    "react",
+    "test_units",
+    "javascript",
+    "cascading",
+    "mongodb",
+    "interface",
+    "html",
+    "hypertext",
+    "jenkins",
+];

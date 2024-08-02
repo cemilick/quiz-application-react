@@ -1,3 +1,5 @@
+import { correctAnswers } from "./constant";
+
 export const randomColorNumber = (number: number) => {
     const letters = '0123456789ABCDEF';
     
@@ -7,4 +9,15 @@ export const randomColorNumber = (number: number) => {
     }
     
     return color;
+}
+
+export const calculateFinalScore = (answer: string[]) => {
+    let score = 0;
+    answer.forEach((value, index) => {
+        if (value === correctAnswers[index]) {
+            score += 10;
+        }
+    });
+
+    return score;
 }

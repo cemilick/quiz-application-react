@@ -4,11 +4,18 @@ import { createSlice } from "@reduxjs/toolkit";
 interface SurveyState {
     dataForm: any[];
     lastNumber: number;
+    minutes: number | null;
+    seconds: number | null;
 }
 
+const defaultMinutes = 5;
+const defaultSeconds = 0;
+
 const initialState: SurveyState = {
-    dataForm: [0],
-    lastNumber: 0
+    dataForm: [],
+    lastNumber: 0,
+    minutes: defaultMinutes,
+    seconds: defaultSeconds
 }
 
 const surveyReducer = createSlice({
@@ -25,9 +32,19 @@ const surveyReducer = createSlice({
         },
         changePage(state, value) {
             state.lastNumber = value.payload;
-        }
+        },
+        updateTimer(state, value) {
+            state.minutes = value.payload.minutes;
+            state.seconds = value.payload.seconds;
+        },
+        resetAll(state) {
+            state.dataForm = [];
+            state.lastNumber = 0;
+            state.minutes = defaultMinutes;
+            state.seconds = defaultSeconds;
+        },
     }
 })
 
-export const { changeAnswer, resetForm, changePage } = surveyReducer.actions
+export const { changeAnswer, resetAll, changePage, updateTimer, resetForm } = surveyReducer.actions
 export default surveyReducer.reducer

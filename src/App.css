@@ -146,3 +146,43 @@ body {
     margin-bottom: 1vw;
     margin-top: 1vw;
 }
+
+.score {
+  font-size: 12vw;
+  margin-top: -4vw;
+  margin-bottom: 2vw;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.time-label {
+  font-size: 1vw;
+}
+
+.time-value {
+  font-size: 1.5vw;
+  margin-left: 1vw;
+}
+
+.time-icon {
+  margin-bottom: -0.2vw;
+  margin-right: 0.5vw;
+}

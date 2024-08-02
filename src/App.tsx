@@ -3,40 +3,47 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeAnswer, resetForm } from './redux/reducers/surveyReducer'
+import { changeAnswer, changePage, resetForm } from './redux/reducers/surveyReducer'
+import Radio from './components/Radio'
+import { survey } from './utils/constant'
+import { randomColorNumber } from './utils/functions'
 
 function App() {
-  const counts = useSelector((state: any) => state.dataForm);
+  const { dataForm, lastNumber } = useSelector((state: any) => state);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(counts[0]);
-  }, [counts]);
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div style={{ border: '1px solid', borderRadius: 10, padding: '3vw' }}>
+      <div style={{
+        position: 'relative',
+        border: '1px solid',
+        borderRadius: '3vw',
+        width: '5vw',
+        height: '5vw',
+        textAlign: 'center',
+        fontSize: '3.2vw',
+        backgroundColor: randomColorNumber(),
+        left: '46%',
+        top: 0,
+      }}>{lastNumber + 1}</div>
+      <h1 style={{ fontSize: '4vw' }}>{survey[lastNumber].question}</h1>
+      <Radio
+        key={dataForm[lastNumber]}
+        required={true}
+        name={"survey#" + lastNumber}
+        options={survey[lastNumber].options}
+        defaultValue={dataForm[lastNumber]}
+        onChange={(value) => dispatch(changeAnswer({ index: lastNumber, answer: value }))}
+      />
+      <div style={{ marginTop: '3vw', display: 'flex', justifyContent: 'center', gap: '20vw' }}>
+        <button style={{ fontSize: '2vw', backgroundColor: 'red' }} onClick={() => dispatch(resetForm())}>Reset</button>
+        {lastNumber === (survey.length - 1) ? (
+          <button style={{ fontSize: '2vw', backgroundColor: 'limegreen' }} onClick={() => dispatch(changePage(0))}>Submit</button>
+        ) : (
+          <button style={{ fontSize: '2vw', backgroundColor: 'limegreen' }} onClick={() => dispatch(changePage(lastNumber + 1))}>Next</button>
+        )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => dispatch(changeAnswer({ index: 0, answer: (counts[0] + 1) }))}>
-          count is {counts[0]}
-        </button>
-        <button onClick={() => dispatch(resetForm())}>Reset Form</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 

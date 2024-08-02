@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+body {
+  background-image: url('../public/img/bg-main.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -41,9 +49,100 @@
   color: #888;
 }
 
-.radio-options {
-  border: 'none';
-  font-size: 20;
-  width: 230;
-  height: 530;
+.card-wrapper {
+  border-radius: 10px; 
+  padding: 3vw;
+  background-color:rgba(0, 0, 0, 0.5)
+}
+
+.mb-3 {
+  margin-bottom: 3vw;
+}
+
+.page-number {
+    position: relative;
+    border: 1px solid;
+    border-radius: 3vw;
+    width: 5vw;
+    height: 5vw;
+    text-align: center;
+    font-size: 3.2vw;
+    left: 46%;
+    top: 0;
+}
+
+.title {
+  font-size: 4vw;
+}
+
+.subtitle {
+  font-size: 2vw;
+  margin-top: -2vw;
+  margin-bottom: 5vw;
+}
+
+.button-wrapper {
+  margin-top: 3vw;
+  display: flex;
+  justify-content: center;
+  gap: 20vw;
+}
+
+.btn {
+  font-size: 2vw;
+}
+
+.btn-danger {
+  background-color: rgb(167, 2, 2);
+  transition: 0.5s;
+}
+
+.btn-danger:hover {
+  background-color: rgb(236, 36, 36);
+  transition: 0.5s;
+}
+
+.btn-primary {
+  background-color: rgb(115, 2, 167);
+  transition: 0.5s;
+
+}
+
+.btn-primary:hover {
+  background-color: rgb(170, 30, 235);
+  transition: 0.5s;
+}
+
+.btn-success {
+  background-color: rgb(2, 167, 2);
+}
+
+.btn-success:hover {
+  background-color: rgb(34, 247, 34);
+  transition: 0.5s;
+}
+
+.btn-main:hover {
+  padding-left: 4vw;
+  padding-right: 4vw;
+  transition: 0.5s;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.input-radio {
+    width: 3vw;
+    height: 3vw;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+    margin-right: 1vw
+}
+
+.label-radio {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
 }

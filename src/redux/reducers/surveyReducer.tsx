@@ -20,7 +20,7 @@ const surveyReducer = createSlice({
             state.dataForm[index] = value.payload.answer;
         },
         resetForm(state) {
-            state.dataForm = [0];
+            state.dataForm = [];
             state.lastNumber = 0;
         },
         changePage(state, value) {

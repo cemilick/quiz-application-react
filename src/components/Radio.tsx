@@ -1,6 +1,6 @@
 import React from "react";
 
-import '../App.css'
+import '../App.css';
 
 interface RadioOptions {
     value: string;
@@ -21,28 +21,18 @@ const Radio: React.FC<IRadio> = ({ options, name, defaultValue, onChange, requir
         <>
             {options.map((option, index) => {
                 return (
-                    <div key={"radio" + index} style={{ display: 'flex', alignItems: 'center' }}>
+                    <div key={"radio" + index} className="input-wrapper">
                         <input
                             type="radio"
                             required={required}
                             id={option.value}
                             name={name}
-                            style={{
-                                width: '3vw',
-                                height: '3vw',
-                                marginBottom: '1vw',
-                                marginTop: '1vw',
-                                marginRight: '1vw'
-                            }}
+                            className="input-radio"
                             value={option.value}
                             defaultChecked={option.value === defaultValue}
                             onChange={(e) => onChange?.(e.target.value)}
                         />
-                        <label style={{
-                            fontSize: '2vw',
-                            marginBottom: '1vw',
-                            marginTop: '1vw',
-                        }} htmlFor={option.value}>{option.label}</label>
+                        <label className="label-radio" htmlFor={option.value}>{option.label}</label>
                     </div>
                 );
             })}
